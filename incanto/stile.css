@@ -1,0 +1,117 @@
+@font-face {
+    font-family: "borel";
+    src: url(font/Borel-Regular.ttf) format("truetype");
+}
+
+*{
+    /*il tutto per non avere bordi bianchi intorno al nero*/
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;		
+}
+
+html{
+    scroll-behavior: smooth;
+    background-color: rgb(241, 217, 187);
+   /* cursor: url(immagini/logo.png), auto; */
+}
+#navigazione {
+    display: flex;  /*così funziona su tutti i display*/
+    background-color: black;
+    justify-content: flex-end;  /*tutto che va verso destra*/
+	align-items: center;    /*oggetti centrali perchè si*/
+    padding: 0.5% 1%; /*distanza tra il bordo e le scritte o immagini*/
+    position: sticky;
+    top: 0;
+    
+    
+}
+
+a {
+    text-decoration: none;
+}
+#logo {
+    margin-right: auto; /*logo a sinistra perchè fa figo */
+    
+}
+
+#nome{
+    margin-top: 2%;
+    color: white;
+    margin-right: 21%;
+    font-size: 350%;
+    font-family: "borel" , sans-serif;
+}
+
+nav li{
+	display: inline;
+	padding: 0 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    
+}
+
+#lista {
+    font-size: 180%;
+    list-style: none;
+    
+}
+
+#quadrato1, #tabella, #quadrato2{
+    background-color: rgba(223, 186, 118, 0.5);
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 2%;
+    text-align: center;
+}
+#tabella{
+    margin-bottom: 5%;
+}
+#siamo, #orari, #contatti{
+    font-family: "borel";
+    font-size: 210%;
+    
+}
+td {
+    font-size: larger;
+}
+.colore_lista:hover{
+    color: rgb(81, 85, 88);
+}
+.testo{
+    font-size: 110%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#immagini1 {
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 4%;
+    overflow: hidden;
+    
+}
+#immagini1 table {
+    width: 100%;
+}
+
+#immagini1 img {
+    width: 100%;
+}
+
+#immagini1 td {
+    width: 33.33%;
+    padding: 0.5%;
+}
+
+footer {
+    /*position:fixed;*/
+    display: flex;  
+    background-color: black;
+    justify-content: center;
+	bottom: 0;
+     width: 100%;
+}
+#testo-footer{
+    color: white;
+    font-size: 70%;
+}
