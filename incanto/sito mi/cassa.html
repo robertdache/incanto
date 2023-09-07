@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calcolatore di Resto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .quick-amount {
+            background-color: gray;
+            color: #fff;
+            border: none;
+            padding: 5px 20px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        #calculate-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            margin-top: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calcolatore di Resto</h2>
+        <label class="input-label" for="price">Prezzo del prodotto:</label>
+        <input class="input-field" type="number" id="price" placeholder="Inserisci il prezzo" step="0.01" required>
+
+        <label class="input-label" for="amount-paid">Importo Pagato:</label>
+        <div>
+            <button class="quick-amount" data-amount="5">5</button>
+            <button class="quick-amount" data-amount="10">10</button>
+            <button class="quick-amount" data-amount="20">20</button>
+            <button class="quick-amount" data-amount="50">50</button>
+        </div>
+        <input class="input-field" type="number" id="amount-paid" placeholder="Inserisci l'importo pagato" step="0.01" required>
+
+        <button id="calculate-button">Calcola Resto</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        document.getElementById("calculate-button").addEventListener("click", function() {
+            const price = parseFloat(document.getElementById("price").value);
+            const amountPaid = parseFloat(document.getElementById("amount-paid").value);
+
+            if (!isNaN(price) && !isNaN(amountPaid)) {
+                const change = amountPaid - price;
+                if (change >= 0) {
+                    document.getElementById("result").textContent = `Resto: \u20AC${change.toFixed(2)}`;
+                } else {
+                    document.getElementById("result").textContent = "L'importo pagato è insufficiente.";
+                }
+            } else {
+                document.getElementById("result").textContent = "Inserisci un prezzo e un importo validi.";
+            }
+        });
+
+        // Aggiungi gestione per i pulsanti di importo rapido
+        const quickAmountButtons = document.querySelectorAll(".quick-amount");
+        quickAmountButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                const amount = parseFloat(button.getAttribute("data-amount"));
+                document.getElementById("amount-paid").value = amount.toFixed(2);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
